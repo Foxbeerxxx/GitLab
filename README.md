@@ -78,6 +78,7 @@ VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
 ```
 5. `Виртуалка создается и начинает работать, только из за 2гб оперативки сервис грузится долго`
 ![1](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img1.png)`
+
 ![2](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img2.png)`
 
 
