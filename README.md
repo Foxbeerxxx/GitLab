@@ -82,6 +82,7 @@ VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
 ![2](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img2.png)`
 
 6. `Как итог получилось добавить памяти до почти 6гб и GitLab стартанул`
+
 ![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img3.png)`
 
 
