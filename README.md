@@ -24,13 +24,64 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
+`Разверните GitLab локально, используя Vagrantfile и инструкцию, описанные в` `этом репозитории.`
+`Создайте новый проект и пустой репозиторий в нём.`
+`Зарегистрируйте gitlab-runner для этого проекта и запустите его в режиме` `Docker. Раннер можно регистрировать и запускать на той же виртуальной машине,` `на которой запущен GitLab.`
+`В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
+1. `Добавляем в Хост файл доменное имя Локального GitLab`
+```
+echo '192.168.56.10    gitlab.localdomain gitlab' >> /etc/hosts
+```
+2. `Копирую репозиторий себе для удобной работы на пк`
+`Копирую репозиторий себе для удобной работы на пк перед этим сделав себе fork`
+`https://github.com/Foxbeerxxx/sdvps-materials-test/tree/main/gitlab`
+3. `Меняю Vagrantfile`
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+
+  # Устанавливаем частную сеть с IP
+  config.vm.network "private_network", ip: "192.168.56.10"
+
+  # Конфигурация для поставщика VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2000"
+  end
+
+  # Устанавливаем скрипт выполняемый при провижнинге
+  config.vm.provision "shell", inline: <<-SHELL
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    # Установка Docker и Docker Compose
+    apt-get install -y docker.io docker-compose
+    # Установка GitLab
+    apt-get install -y curl openssh-server ca-certificates tzdata perl
+    curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+    sudo EXTERNAL_URL="http://gitlab.localdomain" apt-get install gitlab-ee
+    # Предварительная загрузка Docker-образов
+    docker pull gitlab/gitlab-runner:latest
+    docker pull sonarsource/sonar-scanner-cli:latest
+    docker pull golang:1.17
+    docker pull docker:latest
+    # Настройка sysctl для SonarQube
+    sysctl vm.max_map_count=262144
+    # Добавление записей в /etc/hosts
+    echo -e "192.168.56.10\tubuntu-bionic\tubuntu-bionic" >> /etc/hosts
+    echo -e "192.168.56.10\tgitlab.localdomain\tgitlab" >> /etc/hosts
+  SHELL
+end
+```
+4. `Пробую запускать`
+```
+VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
+```
+5. `Виртуалка создается и начинает работать, только из за 2гб оперативки сервис грузится долго`
+![1](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img1.png)`
+![2](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img2.png)`
+
+
+
 6. 
 
 ```
@@ -42,7 +93,7 @@
 ```
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![1](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img1.png)`
 
 
 ---
