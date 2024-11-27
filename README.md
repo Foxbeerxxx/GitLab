@@ -89,6 +89,9 @@ VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
 
 ![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img4.png)`
 
+6. `Создаю свой пустой проект MY_PROJECT`
+
+![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img5.png)`
 
 
 
