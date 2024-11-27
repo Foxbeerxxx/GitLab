@@ -85,22 +85,12 @@ VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
 
 ![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img3.png)`
 
+6. `Заходим и логинимся`
+
+![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img4.png)`
 
 
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![1](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img1.png)`
-
-
----
 
 ### Задание 2
 
