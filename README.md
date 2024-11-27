@@ -87,11 +87,26 @@ VAGRANT_EXPERIMENTAL="disks" vagrant up --provider=virtualbox
 
 6. `Заходим и логинимся`
 
-![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img4.png)`
+![4](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img4.png)`
 
-6. `Создаю свой пустой проект MY_PROJECT`
+7. `Создаю свой пустой проект MY_PROJECT`
 
-![3](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img5.png)`
+![5](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img5.png)`
+
+8. `Зарегистрировал gitlab-runner для этого проекта и запустил его в режиме Docker.`
+
+![6](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img6.png)`
+
+
+8. `Появился в  gitlab-runner .`
+
+![7](https://github.com/Foxbeerxxx/GitLab/blob/main/img/img7.png)`
+
+
+
+
+
+
 
 
 
